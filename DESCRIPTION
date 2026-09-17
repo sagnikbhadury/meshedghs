@@ -18,6 +18,8 @@ Description: Bayesian multivariate spatial and space-depth regression for misali
     Peruzzi, Banerjee, Dunson and Finley (2025) <doi:10.1214/25-BA1515> and Peruzzi and Dunson (2024),
     whose functions are retained. With no groups supplied, the package reproduces 'meshed' 0.2.3.
 License: GPL (>= 3)
+URL: https://github.com/sagnikbhadury/meshedghs
+BugReports: https://github.com/sagnikbhadury/meshedghs/issues
 Imports: Rcpp (>= 1.0.5), stats, dplyr, glue, rlang, magrittr, FNN
 Suggests: coda
 LinkingTo: Rcpp, RcppArmadillo
