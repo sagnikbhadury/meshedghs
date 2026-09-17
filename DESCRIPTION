@@ -1,0 +1,25 @@
+Package: meshedghs
+Type: Package
+Title: Adaptive Borrowing Across Misaligned Outcomes in Meshed Gaussian Process Coregionalization Models
+Version: 0.1.3
+Date: 2026-09-17
+Authors@R: c(
+    person("Sagnik", "Bhadury", email = "sagnik.bhadury@gmail.com", role = c("aut", "cre"),
+           comment = "design-based grouped horseshoe prior, its updates under parameter expansion, and the user interface"),
+    person("Michele", "Peruzzi", role = c("ctb", "cph"),
+           comment = "author and copyright holder of the 'meshed' package (version 0.2.3, GPL >= 3), from which the meshed Gaussian process sampler is derived; not involved in the development of this package"))
+Description: Bayesian multivariate spatial and space-depth regression for misaligned outcomes, in which
+    a design-based grouped horseshoe prior on the off-diagonal loadings of a linear model of
+    coregionalization lets each outcome borrow from a block of other outcomes only when the data
+    support it. The prior is specified on the identified loadings under the parameter expansion used for
+    posterior sampling, and the local and global scales are sampled exactly from discretized full
+    conditionals. The latent factors are meshed Gaussian processes, and the blocked Gibbs sampler is derived
+    from the 'meshed' package of Peruzzi, Banerjee and Finley (2022) <doi:10.1080/01621459.2020.1833889>,
+    Peruzzi, Banerjee, Dunson and Finley (2025) <doi:10.1214/25-BA1515> and Peruzzi and Dunson (2024),
+    whose functions are retained. With no groups supplied, the package reproduces 'meshed' 0.2.3.
+License: GPL (>= 3)
+Imports: Rcpp (>= 1.0.5), stats, dplyr, glue, rlang, magrittr, FNN
+Suggests: coda
+LinkingTo: Rcpp, RcppArmadillo
+NeedsCompilation: yes
+Encoding: UTF-8

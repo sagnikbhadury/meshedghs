@@ -1,0 +1,5 @@
+^IMPLEMENTATION\.md$
+^LICENSE\.md$
+^\.gitignore$
+^.*\.Rproj$
+^\.Rproj\.user$

@@ -1,0 +1,10 @@
+*.o
+*.so
+*.dll
+*.Rcheck/
+*.tar.gz
+.Rhistory
+.RData
+.Rproj.user/
+src-i386/
+src-x64/
