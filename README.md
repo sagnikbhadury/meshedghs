@@ -6,7 +6,7 @@
 
 A joint model can predict an outcome where it was not measured by borrowing from the outcomes that were. Whether borrowing helps depends on the design. When two panels are measured far apart relative to the range of the process they share, the data carry almost no information about their dependence. The cross-loadings of an unrestricted joint model are then weakly identified, and their posterior dispersion adds to the predictive variance of every outcome. This package lets the data decide, block by block, how much each outcome borrows.
 
-Status: version 0.1.3, pre-release. It accompanies a manuscript in preparation (S. Bhadury, *Adaptive borrowing across misaligned outcomes in meshed Gaussian process coregionalization models*). The simulation study of that manuscript is still running, so this README makes no claim about predictive gains. See [Limitations](#limitations).
+Status: version 0.1.3, pre-release. It accompanies a manuscript in preparation (S. Bhadury, *Design-adaptive borrowing across misaligned outcomes in Bayesian coregionalization models*). The simulation study of that manuscript is still running, so this README makes no claim about predictive gains. See [Limitations](#limitations).
 
 ## What the package contributes
 
@@ -16,7 +16,7 @@ Status: version 0.1.3, pre-release. It accompanies a manuscript in preparation (
 4. **Posterior inference on borrowing that is not based on shrinkage weights.** `borrowing_share()` gives the posterior of an effect size: the fraction of an outcome's latent spatial variance that is shared with a block. `borrowing_map()` gives a sparse map by decoupled shrinkage and selection (Hahn and Carvalho, 2015). Thresholding horseshoe shrinkage weights saturates when the number of locations is large, and is provided as a diagnostic only.
 5. **An optional proper prior on the diagonal loadings**, for standardized outcomes on small domains, handled consistently with the parameter expansion.
 
-The meshed Gaussian process machinery (partitioning, the block Gibbs sampler for the latent factors, caching, prediction, non-Gaussian outcomes) is derived from the `meshed` package, version 0.2.3, by Michele Peruzzi (GPL >= 3), whose functions are retained. Michele Peruzzi was not involved in the development of this package. With no groups and no diagonal prior supplied, the code path is that of `meshed` 0.2.3.
+The prior, its theory and the summaries of borrowing involve only the loading matrix and apply to any LMC; this package is the scalable implementation, in which the factors are meshed Gaussian processes. The meshed Gaussian process machinery (partitioning, the block Gibbs sampler for the latent factors, caching, prediction, non-Gaussian outcomes) is derived from the `meshed` package, version 0.2.3, by Michele Peruzzi (GPL >= 3), whose functions are retained. Michele Peruzzi was not involved in the development of this package. With no groups and no diagonal prior supplied, the code path is that of `meshed` 0.2.3.
 
 Details of the model and of every change to the sampler are in [IMPLEMENTATION.md](IMPLEMENTATION.md).
 
