@@ -15,7 +15,7 @@ Description: Bayesian multivariate spatial and space-depth regression for misali
     posterior sampling, and the local and global scales are sampled exactly from discretized full
     conditionals. The latent factors are meshed Gaussian processes, and the blocked Gibbs sampler is derived
     from the 'meshed' package of Peruzzi, Banerjee and Finley (2022) <doi:10.1080/01621459.2020.1833889>,
-    Peruzzi, Banerjee, Dunson and Finley (2025) <doi:10.1214/25-BA1515> and Peruzzi and Dunson (2024),
+    Peruzzi, Banerjee, Dunson and Finley (2026) <doi:10.1214/25-BA1515> and Peruzzi and Dunson (2024),
     whose functions are retained. With no groups supplied, the package reproduces 'meshed' 0.2.3.
 License: GPL (>= 3)
 URL: https://github.com/sagnikbhadury/meshedghs

@@ -163,7 +163,7 @@ Until the manuscript is available, please cite the package and the methods it bu
 ## References
 
 - Peruzzi, M., Banerjee, S. and Finley, A. O. (2022). Highly scalable Bayesian geostatistical modeling via meshed Gaussian processes on partitioned domains. *Journal of the American Statistical Association*, 117, 969-982. doi:10.1080/01621459.2020.1833889
-- Peruzzi, M., Banerjee, S., Dunson, D. B. and Finley, A. O. (2025). Gridding and parameter expansion for scalable latent Gaussian models of spatial multivariate data. *Bayesian Analysis*. doi:10.1214/25-BA1515
+- Peruzzi, M., Banerjee, S., Dunson, D. B. and Finley, A. O. (2026). Gridding and parameter expansion for scalable latent Gaussian models of spatial multivariate data. *Bayesian Analysis*, 21, 1219-1245. doi:10.1214/25-BA1515
 - Peruzzi, M. and Dunson, D. B. (2024). Spatial meshing for general Bayesian multivariate models. *Journal of Machine Learning Research*, 25(87), 1-49.
 - Carvalho, C. M., Polson, N. G. and Scott, J. G. (2010). The horseshoe estimator for sparse signals. *Biometrika*, 97, 465-480.
 - Xu, Z., Schmidt, D. F., Makalic, E., Qian, G. and Hopper, J. L. (2016). Bayesian grouped horseshoe regression with application to additive models. *AI 2016: Advances in Artificial Intelligence*, 229-240.
