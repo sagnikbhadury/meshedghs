@@ -44,7 +44,7 @@ If every loading of outcome $j$ on other blocks is zero, then conditionally on t
 
 ## 3. Parameter expansion, and why it matters
 
-`meshed` samples in an expanded parametrization (Peruzzi, Banerjee, Dunson and Finley, 2025). Each factor carries a working variance $\omega_h = \omega(\theta_h)$ that is not identified, the sampler works with $v_h^* = \omega_h^{1/2} v_h$ and
+`meshed` samples in an expanded parametrization (Peruzzi, Banerjee, Dunson and Finley, 2026). Each factor carries a working variance $\omega_h = \omega(\theta_h)$ that is not identified, the sampler works with $v_h^* = \omega_h^{1/2} v_h$ and
 
 $$\lambda^*_{jh} = \lambda_{jh}\, \omega_h^{-1/2},$$
 
