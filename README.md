@@ -6,7 +6,7 @@
 
 A joint model can predict an outcome where it was not measured by borrowing from the outcomes that were. Whether borrowing helps depends on the design. When two panels are measured far apart relative to the range of the process they share, the data carry almost no information about their dependence. The cross-loadings of an unrestricted joint model are then weakly identified, and their posterior dispersion adds to the predictive variance of every outcome. This package lets the data decide, block by block, how much each outcome borrows.
 
-Status: version 0.1.3, pre-release. It accompanies a manuscript in preparation (S. Bhadury, *Design-adaptive borrowing across misaligned outcomes in Bayesian coregionalization models*). The simulation study of that manuscript is still running, so this README makes no claim about predictive gains. See [Limitations](#limitations).
+Status: version 0.1.3, pre-release. It accompanies a manuscript in preparation (S. Bhadury, *Design-adaptive borrowing across misaligned outcomes in Bayesian coregionalization models*). Its simulation study is complete; the outcome is summarized in [What the simulations show](#what-the-simulations-show), including the pre-registered hypotheses that failed. See also [Limitations](#limitations).
 
 ## What the package contributes
 
@@ -152,7 +152,26 @@ New entries of the output: `ghs_lam_mcmc` (groups x draws, local scales $\gamma_
 - On a 3D breast tumor volume with panels alternating across depth, joint models improved on univariate prediction only when some layers were measured on both panels. With no overlap, the grouped horseshoe did not improve on the univariate model in prediction, and its 90% intervals undercovered (0.84). It did recover cross-panel correlations that were never observed at a common location.
 - The theory behind the prior (posterior dispersion of order $\zeta\, I^{-1/2}$ for a weakly identified group, against $I^{-1}$ under a flat prior, where $I$ is the design information) concerns a local Gaussian experiment, with the global scale fixed. No contraction rate is claimed.
 - `k = q` factors and a lower-triangular $\Lambda$ are assumed; the shares depend on the ordering of the outcomes.
-- A controlled simulation study against the unrestricted LMC, univariate models, NNGP and the inside-out cross-covariance model is in progress. Results will be added here when it is complete.
+- Under designs that carry almost no information about cross-panel dependence, the prior halves the loss of joint modeling relative to univariate models but does not remove it (see above). If you know in advance that two panels are separated by more than the correlation range, fit them separately.
+
+## What the simulations show
+
+The study was pre-registered: designs, competitors, metrics and six hypotheses were fixed before any data set was analyzed, and every hypothesis is reported with its outcome. 260 data sets: six outcomes in two panels of three, 2,500 training locations, four loading structures (DENSE, BLOCK with no cross-panel loadings, CROSS with misspecified groups, INDEP), four observation designs (complete, random missingness, panel split with interleaved panels, and panels separated by a gap), 20 replicates of each of 13 combinations. Competitors: the unrestricted LMC, the singleton horseshoe, univariate meshed GPs, univariate NNGPs (spNNGP), inside-out cross-covariance (spiox) and a non-spatial baseline. All meshed models: 5,000 MCMC iterations.
+
+**Where the design carries information about cross-panel dependence (10 of 13 scenarios):**
+
+- Prediction: the grouped horseshoe is within 0.3% of the unrestricted LMC in RMSPE on hidden outcomes in every scenario, and 8-14% better than univariate models and NNGP where outcomes are dependent. All joint models, including IOX, are indistinguishable in prediction here.
+- Dependence: on correlations that are truly zero, the grouped horseshoe's RMSE is 0.38-0.42 times the LMC's in BLOCK and 0.18-0.20 times in INDEP, with no loss on the nonzero correlations. Its 95% intervals for the correlations cover 0.94-0.97 in BLOCK against 0.87-0.90 for the LMC.
+- Misspecified groups (CROSS): the singleton horseshoe estimates correlations 18-20% better than the design-based groups. If the block structure is doubtful, use `grouping = "element"`.
+- Cost: the prior adds nothing to the wall time of the LMC (median ratio 1.00) and its correlation chains have 1.47 times the effective sample size per second.
+
+**Where the design carries almost no information (panels separated by a gap):**
+
+- The unrestricted LMC is 9-15% worse than univariate models in RMSPE, with 95% coverage of 0.80-0.82.
+- The grouped horseshoe recovers about half of that loss: 4-8% worse than univariate, coverage 0.88-0.91. It does **not** revert fully to univariate prediction. Two of the six pre-registered hypotheses, which had asked for reversion to within 1%, failed on this point.
+- On the dependence parameters it removes most of the spurious cross-panel correlation that the LMC finds (RMSE 0.030 against 0.253 in INDEP with separated panels).
+
+A separate check with exact Gaussian process factors (no meshing, no parameter expansion) reproduces the mechanism and the remedy, which are properties of the LMC and not of the implementation. Full tables, figures and the exact hypotheses are in the manuscript.
 
 ## Citation
 
